@@ -1,0 +1,167 @@
+.App {
+  display: flex;
+  justify-content: center;
+  min-height: 90%;
+  color: #fff;
+}
+
+.main-section {
+  width: 500px;
+  padding: 1.3rem;
+  padding-top: 0.5rem;
+  border-radius: 10px;
+}
+
+.main-section.appwarm {
+  background-image: url("./photos/warm3.jpg");
+  background-size: cover;
+  color: #0f0c29;
+}
+.main-section.appcold {
+  background-image: url("./photos/cold4.jpg");
+  background-size: cover;
+  color: #0f0c29;
+}
+
+.main-section.appcold .header .form .search-icon > i {
+  color: #000;
+}
+
+.header {
+  margin-bottom: 1.2rem;
+}
+
+.header h1 {
+  text-align: center;
+  animation-duration: 600ms;
+  animation-name: text-blink;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes text-blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.header .form .search-icon {
+  position: relative;
+  display: inline;
+  color: white;
+  left: 9%;
+}
+
+.header .form .search-icon > i {
+  font-size: 1.4rem;
+}
+
+.header .form .form-input {
+  display: inline;
+  width: 80%;
+  border-radius: 50px;
+}
+.header .form .form-input:focus {
+  box-shadow: none;
+}
+
+.header .form .micro {
+  position: relative;
+  right: 10%;
+  color: rgb(45, 42, 51);
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+}
+
+.info-section .location {
+  margin-right: 1.1rem;
+}
+
+.info-section .par-location {
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.info-section .degree .main-degree {
+  margin: 4rem 0 3rem 2rem;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.info-section .degree .degree-limits {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.info-section .degree .degree-limits .temp-min {
+  margin-right: 2rem;
+}
+
+.info-section .status {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+}
+
+.info-section .status img {
+  margin-right: 1.1rem;
+}
+
+.info-section .wind,
+.info-section .humidity {
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.info-section .hour {
+  margin-top: 1.2rem;
+}
+
+.info-section .sunrise-hour {
+  margin-right: 2rem;
+}
+
+.info-section .sunrise-hour,
+.info-section .sunset-hour {
+  font-size: 1.1rem;
+}
+
+footer {
+  bottom: 0;
+  padding: 1.2rem;
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
+  background: #4b79a1;
+  background: -webkit-linear-gradient(to right, #283e51, #4b79a1);
+  background: linear-gradient(to right, #283e51, #4b79a1);
+  min-height: 30px;
+  border: solid 5px fff;
+  border-color: #000 transparent transparent transparent;
+  border-radius: 90%/100px 100px 0 0;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+footer > p {
+  animation: blink-animation 2s steps(5, start) infinite;
+  -webkit-animation: blink-animation 2s steps(5, start) infini;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+    transform: scale(0.7);
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
