@@ -39,6 +39,13 @@
   animation-direction: alternate;
 }
 
+.header p {
+  font-size: 1rem;
+  margin-top: 3px;
+  margin-left: 10px;
+  color: red;
+}
+
 @keyframes text-blink {
   from {
     opacity: 1;

@@ -23,7 +23,7 @@ const WeatherData = ({weather, dateBuilder, getLocation}) => {
                 </div>
              </div>
              <div className='status'>
-               <img src ={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}/>
+               <img src ={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`} alt='no data'/>
                {weather.weather[0].main} 
              </div>
              <div className='wind'>Wind speed: {weather.wind.speed} km/h</div>

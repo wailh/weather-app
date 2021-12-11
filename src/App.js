@@ -1,6 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import SearchBox from './components/forecast/SearchBox'
 import WeatherData from './components/forecast/weatherData'
+import {ToastContainer, toast} from 'react-toastify'
+import * as Sentry from "@sentry/react";
+import { Integrations } from "@sentry/tracing";
+import 'react-toastify/dist/ReactToastify.css'
 import './App.css'
 
 function App() {
@@ -11,16 +15,23 @@ function App() {
   const [query, setQuery] = useState('ferdjioua')
   const [cold, setCold] = useState()
 
-  useEffect(async() => {
+  useEffect(() => {
     getWeather()
   }, [query])
 
 
   const getWeather = async () => {
-    const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${appId}`)
-    const weather = await data.json()
-    setWeather(weather)
-    setCold(Math.round(weather.main.temp - 273.15))
+    try {
+      const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${appId}`)
+      const weather = await data.json()
+      setWeather(weather)
+      setCold(Math.round(weather.main.temp - 273.15))
+    }
+    catch(ex) {
+        Sentry.captureException(ex)
+        toast.error('An unexpected error occured, please try with a valid city name')
+        setQuery('ferdjioua')
+    }
   }
  
   const handleSubmit = (e) => {
@@ -57,9 +68,17 @@ function App() {
     });
   }
 
+  Sentry.init({
+    dsn: "https://60f0eb552bf84d528b69436b90757184@o1085011.ingest.sentry.io/6095428",
+    integrations: [new Integrations.BrowserTracing()],
+
+    tracesSampleRate: 1.0,
+  });
+
   return (
     <>
       <div className='App'> 
+        <ToastContainer/ >
         <div className={(typeof weather.main != 'undefined') ? ((cold > 20) ? 'appwarm main-section' : 'appcold main-section') : 'main-section'}>
           <SearchBox handleSubmit={handleSubmit} search={search} handleChange={handleChange}/>
 

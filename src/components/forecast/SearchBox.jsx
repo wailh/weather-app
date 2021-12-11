@@ -18,7 +18,7 @@ const SearchBox = ({handleSubmit, search, handleChange}) => {
                 </div>
                 <span className="micro"><i className="fa fa-microphone"></i></span> 
             </form>
-            <p style={{fontSize: '1rem', marginTop: '3px', marginLeft: '10px'}}>Add the city name for better results. Ex: mila</p>
+            <p >Add the city name for better results. Ex: mila</p>
         </header>
     )
 }
