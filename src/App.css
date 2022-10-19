@@ -13,12 +13,12 @@
 }
 
 .main-section.appwarm {
-  background-image: url("./photos/warm3.jpg");
+  background-image: url("https://source.unsplash.com/PqqQDpS6H6A");
   background-size: cover;
   color: #0f0c29;
 }
 .main-section.appcold {
-  background-image: url("./photos/cold4.jpg");
+  background-image: url("https://source.unsplash.com/9FWfv4ewI2o");
   background-size: cover;
   color: #0f0c29;
 }
